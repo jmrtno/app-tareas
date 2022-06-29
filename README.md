@@ -1,6 +1,6 @@
-# Webpack Starter
+# App Tareas
 
-Este es el proyecto inicial para crear aplicaciones utilizando Webpack.
+Aplicación para registrar, eliminar y completar tareas hecha en JS.
 
 ### Notas:
 Recuerda reconstruir los módulos de Node:
