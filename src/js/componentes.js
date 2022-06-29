@@ -9,6 +9,7 @@ const btnClearCompleted = document.querySelector('.clear-completed');
 const ulFiltros = document.querySelector('.filters');
 const anchorFiltros = document.querySelectorAll('.filtro');
 
+
 export const añadirPendientes = document.querySelector('.todo-count'); 
 
 export const crearTodoHtml = (todo) => {
