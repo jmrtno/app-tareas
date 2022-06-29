@@ -1,4 +1,5 @@
 import { Todo } from "./todo.class";
+import { añadirPendientes } from "../js/componentes";
 
 
 export class TodoList {
@@ -7,11 +8,13 @@ export class TodoList {
 
         // this.todos = [];
         this.cargarLocalStorage();
+        this.añadirPendientes();
     }
 
     nuevoTodo(todo) {
         this.todos.push(todo);
         this.guardarLocalStorage();
+        this.añadirPendientes();
 
     }
 
@@ -19,6 +22,7 @@ export class TodoList {
 
         this.todos = this.todos.filter(todo => todo.id != id);
         this.guardarLocalStorage();
+        this.añadirPendientes();
 
     }
 
@@ -30,12 +34,27 @@ export class TodoList {
 
                 todo.completado = !todo.completado;
                 this.guardarLocalStorage();
+                this.añadirPendientes();
                 break;
 
             }
         }
 
     }
+
+    añadirPendientes() {
+
+        let pendientes = 0;
+
+        let countBox = añadirPendientes.firstElementChild;
+        for (let todo of this.todos) {
+            (!todo.completado === true) ? pendientes++ : null;
+        }
+
+        countBox.innerHTML = pendientes;
+
+    }
+    
 
     eliminarCompletados() {
 
@@ -66,5 +85,6 @@ export class TodoList {
         this.todos = this.todos.map(Todo.fromJson);
 
     }
+    
 
 }
